@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age calculate</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://cdn.pixabay.com/photo/2015/10/16/19/18/balloon-991680_640.jpg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="contaner">
+      <div class="calculate">
+        <h1>Sk❤️ <br /><span>Age Calculate</span></h1>
+
+        <div class="input-box">
+          <input type="date" id="input" />
+
+          <button onclick="calculateAge()">Calculate</button>
+        </div>
+
+        <p id="result"></p>
+      </div>
+    </div>
+
+    <script>
+      let userInput = document.getElementById("input");
+      userInput.max = new Date().toISOString().split("T")[0]; // for avoiding select future date
+      let result = document.getElementById("result");
+
+      function calculateAge() {
+        let birthDate = new Date(userInput.value);
+        // console.log(birthDate);
+
+        let d1 = birthDate.getDate();
+        let m1 = birthDate.getMonth();
+        let y1 = birthDate.getFullYear();
+
+        let today = new Date();
+
+        let d2 = today.getDate();
+        let m2 = today.getMonth();
+        let y2 = today.getFullYear();
+
+        let d3, m3, y3;
+
+        d3 = d2 - d1;
+        m3 = m2 - m1;
+        y3 = y2 - y1;
+
+        console.log(`your age is ${y3} years ${m3} months and ${d3} days`);
+
+        result.innerHTML = `your age is ${y3} years ${m3} months and ${d3} days`;
+      }
+    </script>
+  </body>
+</html>
